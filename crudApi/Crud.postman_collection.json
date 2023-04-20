@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "86a79e1d-7a0f-4bed-b255-8f3c952012e3",
+		"name": "Crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "deyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjgxOTEwMDgxLCJleHAiOjE2ODE5MTM2ODEsIm5iZiI6MTY4MTkxMDA4MSwianRpIjoieW5KSHRWTkxvZWFqMDhGMiIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.kyntxjaD2djZylD7GG89AS2FSyGlj-SRB14dMm3FRnw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"English\",\r\n    \"description\": \"test\",\r\n    \"dateDue\": \"2023-04-30\",\r\n    \"statusId\": \"1\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/addTask",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"addTask"
+					]
+				},
+				"description": "This endpoint adds tasks to the database"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email_address\": \"ngangamartin11@gmail.com\",\r\n    \"password\": \"kitty254\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "This is the login endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email_address\": \"ngangamartin11@gmail.com\",\r\n    \"password\": \"kitty254\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				},
+				"description": "This is the registration endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/getAllUsers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"getAllUsers"
+					]
+				},
+				"description": "This endpoint gets all the users in the database"
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"statusId\":\"2\",\r\n    \"userId\":\"3\",\r\n    \"taskId\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/updateUserTask",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"updateUserTask"
+					]
+				},
+				"description": "This endpoint updates the user tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "assignTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"3\",\r\n    \"taskId\":\"1\",\r\n    \"dateDue\":\"2023-04-30\",\r\n    \"startTime\":\"2023-04-19 \",\r\n    \"endTime\":\"2023-04-30\",\r\n    \"remarks\":\"this is a test\",\r\n    \"statusId\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/assignTask",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"assignTask"
+					]
+				},
+				"description": "Assigns task to a user"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "default"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjgxOTEyMTMzLCJleHAiOjE2ODE5MTU3MzMsIm5iZiI6MTY4MTkxMjEzMywianRpIjoiWUZERldiakxXbUNSS0MydiIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.L_zqAUfX3vjPJ5kC7ov3wk-4LnD0fdN3_FvGi2P7g2E",
+			"type": "default"
+		}
+	]
+}
